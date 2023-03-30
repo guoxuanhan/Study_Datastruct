@@ -21,7 +21,7 @@ int main() {
     singleList.PushBack(200);
     singleList.Print();
 
-    std::cout << "Insert" << std::endl;
+    std::cout << "Insert 1 pos" << std::endl;
     singleList.Insert(300, 1);
     singleList.Print();
 

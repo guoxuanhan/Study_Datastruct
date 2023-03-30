@@ -5,7 +5,8 @@
 #include "./single_list.h"
 
 SingleList::SingleList() {
-
+    this->m_Head = nullptr;
+    this->m_Size = 0;
 }
 
 SingleList::SingleList(int val) {
