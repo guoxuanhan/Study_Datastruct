@@ -112,3 +112,46 @@ void SingleList::Print() {
 const int SingleList::Size() const {
     return this->m_Size;
 }
+
+void SingleList::Reverse() {
+    if (this->m_Head == nullptr || this->m_Head->next == nullptr) {
+        return;
+    }
+
+    // null ---> 1 ---> 2 ---> 3 ---> 4
+    //  |        |      |      |      |
+    // pre      cur    nxt
+    LPNODE pre = nullptr;
+    LPNODE cur = m_Head;
+    LPNODE nxt = cur->next;
+
+    while (true) {
+        // 修改指向，让cur指向前一个节点
+        // null <--- 1      2 ---> 3 ---> 4
+        //  |        |      |      |      |
+        // pre      cur    nxt
+        cur->next = pre;
+        if(nxt == nullptr) {
+            break;
+        }
+
+        // 移动三个指针，重新进入循环修改指向
+        // null <--- 1      2 ---> 3 ---> 4
+        //  |        |      |      |      |
+        //          pre    cur    nxt
+        pre =cur;
+        cur = nxt;
+        nxt = nxt->next;
+    }
+
+    // 出了循环cur就是最后一个节点，让它做为新的头节点
+    m_Head = cur;
+}
+
+void SingleList::Merge(Node *that) {
+
+}
+
+int SingleList::GetMiddleValue() {
+
+}

@@ -57,6 +57,18 @@ public:
     // 获取元素个数
     const int Size() const;
 
+public:
+    // 以下是习题：
+
+    // 反转
+    void Reverse();
+
+    // 合并
+    void Merge(Node *that);
+
+    // 获取中间值
+    int GetMiddleValue();
+
 private:
     // 头结点
     LPNODE m_Head;
