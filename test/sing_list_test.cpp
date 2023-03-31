@@ -30,7 +30,8 @@ int main() {
     singleList.Print();
 
     std::cout << "Reverse" << std::endl;
-    singleList.Reverse();
+    //singleList.Reverse();
+    singleList.ReverseByRecursion(singleList.GetHead());
     singleList.Print();
 
 

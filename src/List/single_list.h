@@ -57,11 +57,16 @@ public:
     // 获取元素个数
     const int Size() const;
 
+    const LPNODE GetHead();
+
 public:
     // 以下是习题：
 
     // 反转
     void Reverse();
+
+    // 用递归的方式反转
+    LPNODE ReverseByRecursion(LPNODE head);
 
     // 合并
     void Merge(Node *that);

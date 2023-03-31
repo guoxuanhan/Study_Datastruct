@@ -113,6 +113,10 @@ const int SingleList::Size() const {
     return this->m_Size;
 }
 
+const LPNODE SingleList::GetHead() {
+    return this->m_Head;
+}
+
 void SingleList::Reverse() {
     if (this->m_Head == nullptr || this->m_Head->next == nullptr) {
         return;
@@ -146,6 +150,23 @@ void SingleList::Reverse() {
 
     // 出了循环cur就是最后一个节点，让它做为新的头节点
     m_Head = cur;
+}
+
+LPNODE SingleList::ReverseByRecursion(LPNODE head) {
+    if (head == nullptr || head->next == nullptr) {
+        return head;
+    }
+
+    // 找到最后一个节点
+    LPNODE cur = ReverseByRecursion(head->next);
+
+    // 修改最后节点的指向
+    head->next->next = head;
+    head->next = nullptr;
+
+    // cur就是新的头节点
+    this->m_Head = cur;
+    return cur;
 }
 
 void SingleList::Merge(Node *that) {
