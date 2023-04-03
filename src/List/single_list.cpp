@@ -109,6 +109,15 @@ void SingleList::Print() {
     std::cout << std::endl;
 }
 
+void SingleList::Print(LPNODE head) {
+    LPNODE temp = head;
+    while (temp != nullptr) {
+        std::cout << temp->data << " ";
+        temp = temp->next;
+    }
+    std::cout << std::endl;
+}
+
 const int SingleList::Size() const {
     return this->m_Size;
 }
@@ -169,8 +178,32 @@ LPNODE SingleList::ReverseByRecursion(LPNODE head) {
     return cur;
 }
 
-void SingleList::Merge(Node *that) {
+LPNODE SingleList::Merge(Node *that) {
+    // 两个合并后的新节点
+    LPNODE newHead = new Node(-1);
 
+    // 用来指向两个链表比较后的最小值的节点
+    LPNODE p = newHead;
+
+    while (this->m_Head != nullptr && that != nullptr) {
+        // 找到最小的节点值
+        if (this->m_Head->data <= that->data) {
+            p->next = this->m_Head; // 新链表链接最小节点
+            this->m_Head = this->m_Head->next; // 节点后移，继续判断大小
+        }
+        else {
+            p->next = that;
+            that = that->next;
+        }
+
+        // 一定要移动新链表指针，将筛选的最小值排列起来
+        p = p->next;
+    }
+
+    // 把最后不为空的链表直接拼接在新链表尾部
+    p->next = this->m_Head == nullptr ? that : this->m_Head;
+
+    return newHead->next;
 }
 
 int SingleList::GetMiddleValue() {

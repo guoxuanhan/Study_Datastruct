@@ -54,6 +54,9 @@ public:
     // 打印链表
     void Print();
 
+    // 传入头节点打印链表
+    void Print(LPNODE head);
+
     // 获取元素个数
     const int Size() const;
 
@@ -69,7 +72,7 @@ public:
     LPNODE ReverseByRecursion(LPNODE head);
 
     // 合并
-    void Merge(Node *that);
+    LPNODE Merge(Node *that);
 
     // 获取中间值
     int GetMiddleValue();
