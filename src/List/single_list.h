@@ -85,13 +85,4 @@ private:
     size_t m_Size;
 };
 
-
-/*
-    TODO:
-        1. 快慢指针获取中间值
-        2. 反转
-        3. 合并
-*/
-
-
 #endif //SINGLE_LIST_H

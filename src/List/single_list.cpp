@@ -207,5 +207,15 @@ LPNODE SingleList::Merge(Node *that) {
 }
 
 int SingleList::GetMiddleValue() {
+    // 快慢指针
+    LPNODE fast = this->m_Head;
+    LPNODE slow = this->m_Head;
 
+    while(fast != nullptr && fast->next != nullptr) {
+        // 慢指针走一步，快指针走两步
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    return slow->data;
 }

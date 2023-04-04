@@ -34,23 +34,28 @@ int main() {
 //    singleList.ReverseByRecursion(singleList.GetHead());
 //    singleList.Print();
 
-    std::cout << "Merge Begin" << std::endl;
-    std::cout << "List 1 Print" << std::endl;
-    singleList.PushBack(1);
-    singleList.PushBack(3);
-    singleList.PushBack(5);
+//    std::cout << "Merge Begin" << std::endl;
+//    std::cout << "List 1 Print" << std::endl;
+//    singleList.PushBack(1);
+//    singleList.PushBack(3);
+//    singleList.PushBack(5);
+//    singleList.Print();
+//
+//    SingleList singleList2;
+//    std::cout << "List 2 Print" << std::endl;
+//    singleList2.PushBack(2);
+//    singleList2.PushBack(4);
+//    singleList2.PushBack(6);
+//    singleList2.Print();
+//
+//    std::cout << "Merge over Print" << std::endl;
+//    LPNODE newNode = singleList.Merge(singleList2.GetHead());
+//    singleList.Print(newNode);
+
+    singleList.Init(9);
     singleList.Print();
-
-    SingleList singleList2;
-    std::cout << "List 2 Print" << std::endl;
-    singleList2.PushBack(2);
-    singleList2.PushBack(4);
-    singleList2.PushBack(6);
-    singleList2.Print();
-
-    std::cout << "Merge over Print" << std::endl;
-    LPNODE newNode = singleList.Merge(singleList2.GetHead());
-    singleList.Print(newNode);
+    auto midVal = singleList.GetMiddleValue();
+    std::cout << midVal << std::endl;
 
     return 0;
 }
