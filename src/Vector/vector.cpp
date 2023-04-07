@@ -101,8 +101,8 @@ void Vector::PopBack() {
 }
 
 void Vector::Erase(int index) {
-    for(int i = index; i < this->m_Size; i++) {
-        this->m_Head[i - 1] = this->m_Head[i];
+    for(int i = index; i < this->m_Size - 1; i++) {
+        this->m_Head[i] = this->m_Head[i + 1];
     }
 
     this->m_Size--;
@@ -128,18 +128,12 @@ void Vector::Print() {
 }
 
 void Vector::CheckCapacity() {
-    // 拷贝值
-    int *temp = new int[this->m_Capacity];
-    memcpy(temp, &this->m_Head, this->m_Size);
-
-    delete this->m_Head;
-    this->m_Head = nullptr;
-
-    // 扩容2倍
-    this->m_Capacity *= 2;
-    this->m_Head = new int[this->m_Capacity];
-
-    for (int i = 0; i < this->m_Size; i++) {
-        this->m_Head[i] = temp[i];
+    if(this->m_Size == this->m_Capacity) {
+        // 扩容2倍
+        this->m_Capacity = this->m_Capacity == 0 ? 1 : this->m_Capacity << 1;
+        int *newData = new int[this->m_Capacity];
+        memcpy(newData, this->m_Head, sizeof(int) * this->m_Size);
+        delete this->m_Head;
+        this->m_Head = newData;
     }
 }
